@@ -1,0 +1,52 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static/styles.css" />
+    <title>AI Response Generator</title>
+  </head>
+  <body>
+    <h1>AI Response Generator</h1>
+    <form
+      id="uploadForm"
+      method="POST"
+      action="/upload_document"
+      enctype="multipart/form-data"
+    >
+      <label for="file">Select a file:</label>
+      <input type="file" id="file" name="file" accept=".json" />
+      <br />
+      <button type="button" onclick="uploadDocument()">Upload Document</button>
+    </form>
+    <div id="questionForm" style="display: none">
+      <label for="question">Enter your question:</label>
+      <input type="text" id="question" name="question" />
+      <label for="alpha">Alpha value (0-1):</label>
+      <input
+        type="range"
+        id="alpha"
+        name="alpha"
+        min="0"
+        max="1"
+        step="0.1"
+        value="0.5"
+      />
+      <br />
+
+      <button type="button" onclick="generateResponse()">
+        Generate Response
+      </button>
+    </div>
+    <div id="response">
+      {% if error %}
+      <p class="error">{{ error }}</p>
+      {% endif %} {% if response %}
+      <p class="response">{{ response }}</p>
+      {% endif %}
+    </div>
+    <script src="static/app.js"></script>
+  </body>
+</html>
