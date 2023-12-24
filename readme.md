@@ -1,5 +1,4 @@
 # VectorVault @BitHacks
-# Weviate Features
 
 Weviate is a powerful vector database that provides advanced capabilities for storing, managing, and searching vector representations. Below is an in-depth exploration of its features.
 
